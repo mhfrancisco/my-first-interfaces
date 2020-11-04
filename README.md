@@ -7,5 +7,5 @@ Design an EchoDot interface which will allow user
 * mute microphone
 * unmute microphone
 
-
-  
+## 2. Implementing an Interface
+![Exercise No. 2](./exercise2.png "Exercise No. 2")
