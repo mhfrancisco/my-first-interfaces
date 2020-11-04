@@ -21,3 +21,32 @@ Design a class ReimbursementServiceImpl such that:
 4. the class diagram should look like:
 
 ![Reimbursement Class Diagram](./reimbursement-service-class-diagram.png "Reimbursement Class Diagram")
+
+5. To test your design, implement the following interfaces with hardcoded return values:
+* EmployeeDetailsProvider
+* ReimbursableProvider
+* PayoutManager
+
+Create a ReimbursementMain class and in its _main()_ method, instantiate a ReimbursementServiceImpl object
+
+```java
+ReimbursementService reimbursementService = new ReimbursementServiceImpl(
+    new EmployeeDetailsProviderImpl(),
+    new ReimbursableProviderImpl(),
+    new PayoutManagerImpl()
+);
+```
+
+And, instantiate a ReimbursementRequest object and invoke _reimburse()_ method of the reimbursementService object:
+
+```java
+// example
+ReimbursementRequest request = new ReimbursementRequest(1L, 10000.0, 1L);
+ReimbursementResult result = reimbursementService.reimburse(request);
+```
+
+Then, print the results and check whether they match with what you expect based on the hard-coded values you set on the implementing classes.
+```java
+System.out.println("approved: " + result.isApproved());
+System.out.println("approvedAmount: " + result.getApprovedAmount());
+```
