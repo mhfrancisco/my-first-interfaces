@@ -22,9 +22,9 @@ public class ReimbursementServiceImpl implements ReimbursementService {
     @Override
     public ReimbursementResult reimburse(ReimbursementRequest reimbursementRequest) {
         ReimbursementResult result = new ReimbursementResult();
-        EmployeeDetails employeeDetails = employeeDetailsProvider.getEmployeeDetails(1);
+        EmployeeDetails employeeDetails = employeeDetailsProvider.getEmployeeDetails(reimbursementRequest.getEmployeeId());
         if (1 == employeeDetails.getEmoployeeStatus()) {
-            Reimbursable reimbursable = reimbursableProvider.getReimbursable(1);
+            Reimbursable reimbursable = reimbursableProvider.getReimbursable(reimbursementRequest.getReimbursableId());
             double reimbursableAmount = 0;
             if (reimbursementRequest.getPurchaseAmount() > reimbursable.getAmount()) {
                 reimbursableAmount = reimbursable.getAmount();
