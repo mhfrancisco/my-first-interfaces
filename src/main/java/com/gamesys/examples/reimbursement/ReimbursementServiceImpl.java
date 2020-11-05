@@ -34,7 +34,6 @@ public class ReimbursementServiceImpl implements ReimbursementService {
             PayoutResult payoutResult = new PayoutResult();
             payoutResult.setAmount(reimbursableAmount);
             payoutResult.setEmployeeId(employeeDetails.getEmployeeId());
-            payoutResult.setPayoutStatus(1);
             payoutManager.payoutEmployee(payoutResult);
 
             result.setApproved(true);
